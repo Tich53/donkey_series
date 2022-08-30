@@ -1,6 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	<h1>program
-		{{ id }}</h1>
+	<h1>{{ program.id }}
+		-
+		{{ program.title }}</h1>
+	<p>Synopsis:
+		{{ program.summary }}</p>
+	<p>Catégorie:
+		{{ program.category.name }}</p>
+	<img src="{{ program.poster }}" alt="">
+	<div>
+		<a style="color:yellow" href="{{ path('program_app_index') }}">
+			Retour à la liste des programmes
+		</a>
+	</div>
+	<div>
+		<a style="color:orange" href="{{ path('category_index') }}">
+			Voir catégories
+		</a>
+	</div>
+
 {% endblock %}

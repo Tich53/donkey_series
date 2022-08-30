@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProgramController!
+{% block title %}Tous les programmes!
 
 {% endblock %}
 
@@ -8,7 +8,29 @@
 {% block body %}
 	<div class="example-wrapper">
 		<h1>
-			Bienvenue !
+			Tous nos programmes !
 		</h1>
+		{% for program in programs %}
+			<div>
+				<h2>{{ loop.index }}
+					/
+					{{ program.title }}
+					- Catégorie :
+					{{ program.category.name }}</h2>
+				<p>{{ program.summary }}</p>
+				<div>
+					<a style="color:yellow" href="{{ path('program_show', {id : program.id}) }}">
+						Détails
+					</a>
+				</div>
+
+
+			</div>
+		{% else %}
+			Aucune série trouvée.
+		{% endfor %}
+		<a style="color:orange" href="{{ path('program_app_index') }}">
+			Retour à l'accueil
+		</a>
 	</div>
 {% endblock %}
