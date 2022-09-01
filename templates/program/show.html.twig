@@ -8,6 +8,12 @@
 		{{ program.summary }}</p>
 	<p>Catégorie:
 		{{ program.category.name }}</p>
+	<div>
+		{% for season in seasons %}
+			<a style="color:brown" href="{{ path('program_season_show', {programId: program.id, seasonId: season.id}) }}">Saison
+				{{season.number}}</a>
+		{% endfor %}
+	</div>
 	<img src="{{ program.poster }}" alt="">
 	<div>
 		<a style="color:yellow" href="{{ path('program_app_index') }}">
@@ -15,7 +21,7 @@
 		</a>
 	</div>
 	<div>
-		<a style="color:orange" href="{{ path('category_index') }}">
+		<a style="color:black" href="{{ path('category_index') }}">
 			Voir catégories
 		</a>
 	</div>
