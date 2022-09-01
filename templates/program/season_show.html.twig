@@ -15,12 +15,24 @@
 	<h2>Liste des épisodes:</h2>
 	<div>
 		{% for episode in episodes %}
-			<a style="color:black" href="#">Episode
+			<a style="color:black" href="{{ path('program_episode_show', { program : program.id, season : season.id, episode : episode.id }) }}">Episode
 				{{loop.index}}
 				{{episode.title}}</a>
+
 		</div>
 	{% endfor %}
 
 	<img src="{{ season.program.poster }}" alt="Poster">
+
+	<div>
+		<a style="color:yellow" href="{{ path('program_app_index') }}">
+			Retour à la liste des programmes
+		</a>
+	</div>
+	<div>
+		<a style="color:black" href="{{ path('category_index') }}">
+			Voir catégories
+		</a>
+	</div>
 
 {% endblock %}
